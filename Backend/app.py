@@ -20,7 +20,7 @@ con.close()
 
 @app.route('/ohno.js')
 def summary():
-    data = "{'data-columns': " + str(columns) + "}"
+    data = "{'columns': " + str(columns) + "}"
 
     ret = 'var foo = {}'.format(data)
     print(ret)

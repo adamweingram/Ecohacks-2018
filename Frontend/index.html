@@ -7,9 +7,8 @@
 
 		<link rel="stylesheet" href="style.css">
 		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-		<!-- <script src="data.json"></script> -->
-		<!-- <script src="http://127.0.0.1:5000"></script> -->
-		<script src="http://127.0.0.1:5000/test.js"></script>
+		<script src="http://127.0.0.1:5000/ohno.js"></script>
+		<!-- <script src="http://165.227.59.35:5000/ohno.js"></script> -->
 	</head>
 	<body>
 		<h1>Testing</h1>
@@ -17,40 +16,8 @@
 		<div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
 
 		<script>
-			function getJSONP(url, success) {
-				var ud = '_' + +new Date,
-					script = document.createElement('script'),
-					head = document.getElementsByTagName('head')[0] 
-						|| document.documentElement;
+			console.log(foo.columns);
 
-				window[ud] = function(data) {
-					head.removeChild(script);
-					success && success(data);
-				};
-
-				script.src = url.replace('callback=?', 'callback=' + ud);
-				head.appendChild(script);
-
-			}
-
-			// getJSONP('http://165.227.59.35:5000', function(data){
-			// 	alert(data);
-			// });
-
-			getJSONP('http://127.0.0.1:5000/ohno.js', function(data) {
-				bar = JSON.parse(data);
-				console.log(bar);
-			});
-
-			// getJSONP('data.json', function(data) {
-			// 	console.log("The data: " + data);
-			// });
-			// console.log(impData);
-
-			console.log(foo);
-		</script>
-
-		<script>
 			var trace1 = {
 				x: [1, 2, 3, 4],
 				y: [10, 15, 13, 17],
