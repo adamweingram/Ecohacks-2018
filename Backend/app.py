@@ -7,18 +7,22 @@ from flask_restful import Resource, Api
 app = Flask(__name__)
 api = Api(app)
 
+# Database Stuff
+con = sqlite3.connect("./database.db")
+
+rows = get_rows(con)
+columns = get_columns(con)
+
+con.commit()
+con.close()
+# End database stuff
+
 
 class Data(Resource):
     def get(self):
-        con = sqlite3.connect("./database.db")
-
-        values = get_rows(con)
-
-        con.commit()
-        con.close()
-
         data = {
-            'data-rows': values[0:20]
+            # 'data-rows': rows,
+            'data-columns': columns
         }
 
         return data
