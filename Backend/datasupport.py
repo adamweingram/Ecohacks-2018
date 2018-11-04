@@ -15,6 +15,21 @@ def get_rows(con):
     return rows
 
 
+def get_columns(con):
+    rows = get_rows(con)
+
+    columns = []
+
+    for i in range(0, 18):
+        curr_column = []
+        for row in rows:
+            curr_column.append(row[i])
+        columns.append(curr_column)
+
+    return columns
+
+
+
 def db_testing():
     """
     Screw around with an in-memory database in order to test certain things. Please disregard this function!
