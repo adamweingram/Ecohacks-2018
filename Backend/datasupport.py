@@ -16,6 +16,10 @@ def get_rows(con):
 
 
 def db_testing():
+    """
+    Screw around with an in-memory database in order to test certain things. Please disregard this function!
+    :return:
+    """
     con = sqlite3.connect(":memory:")
     cur = con.cursor()
     cur.execute("CREATE TABLE given_data (reading_time text, chw_total text, hw_total text, hw_kl text, chw_kl text, hw_cob text, chw_cob text, hw_SE1 text, chw_SE1 text, hw_SE2 text, chw_SE2 text, hw_SSB text, chw_SSB text, hw_SSM text, chw_SSM text, hw_SAAC text, chw_SAAC text, total_sunpower_kwh text);")

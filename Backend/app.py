@@ -11,7 +11,6 @@ api = Api(app)
 class Data(Resource):
     def get(self):
         con = sqlite3.connect("./database.db")
-        # cur = con.cursor()
 
         values = get_rows(con)
 
