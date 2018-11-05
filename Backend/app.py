@@ -27,18 +27,5 @@ def summary():
     return ret
 
 
-class Data(Resource):
-    def get(self):
-        data = jsonify({
-            # 'data-rows': rows,
-            'data-columns': columns
-        })
-
-        return data
-
-
-api.add_resource(Data, '/')
-
-
 if __name__ == '__main__':
     app.run()
