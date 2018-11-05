@@ -13,34 +13,51 @@
 	<body>
 		<h1>Testing</h1>
 
-		<div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+		<div id="plot-div"></div>
 
 		<script>
-			console.log(foo.columns);
+			console.log(foo.columns[1]);
 
-			var trace1 = {
-				x: [1, 2, 3, 4],
-				y: [10, 15, 13, 17],
-				mode: 'markers'
+
+			xVals = []
+			for (var i = 0; i < foo.columns[0].length; i++) {
+				xVals.push(i)
+			}
+
+			yVals = foo.columns[1];
+			console.log(xVals);
+			console.log(yVals);
+
+			var chw_total = {
+				x: foo.columns[0],
+				y: foo.columns[1],
+				mode: 'markers',
+				type: 'scattergl',
+				name: 'chw_total'
 			};
 
-			var trace2 = {
-				x: [2, 3, 4, 5],
-				y: [16, 5, 11, 10],
-				mode: 'lines'
+			var hw_total = {
+				x: foo.columns[0],
+				y: foo.columns[2],
+				mode: 'markers',
+				type: 'scattergl',
+				name: 'hw_total'
 			};
 
-			var trace3 = {
-				x: [1, 2, 3, 4],
-				y: [12, 9, 15, 12],
-				mode: 'lines+markers'
+			var hw_kl = {
+				x: foo.columns[0],
+				y: foo.columns[3],
+				mode: 'markers',
+				type: 'scattergl',
+				name: 'hw_kl'
 			};
 
-			var data = [ trace1, trace2, trace3 ];
+			var data = [ chw_total, hw_total, hw_kl ];
+			// var data = [hw_kl];
 
 			var layout = {};
 
-			Plotly.newPlot('myDiv', data, layout);
+			Plotly.newPlot('plot-div', data, layout);
 		</script>
 	</body>
 </html>
