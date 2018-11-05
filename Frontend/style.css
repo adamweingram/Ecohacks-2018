@@ -1,0 +1,23 @@
+p1 {
+    font-family: 'PT Serif', sans-serif;
+}
+
+* {
+    font-family: 'Oswald', sans-serif;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    background-color: MediumSeaGreen;
+    flex-wrap: nowrap;
+  }
+  
+  .flex-container > div {
+    background-color: #f1f1f1;
+    margin: 3px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 3vw;
+  
+  }
