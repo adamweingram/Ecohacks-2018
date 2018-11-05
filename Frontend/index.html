@@ -6,6 +6,8 @@
 		<title></title>
 
 		<link rel="stylesheet" href="style.css">
+		<link href="https://fonts.googleapis.com/css?family=Oswald|PT+Serif" rel="stylesheet"> 
+
 		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 		<script src="http://127.0.0.1:5000/ohno.js"></script>
 		<!-- <script src="http://165.227.59.35:5000/ohno.js"></script> -->
@@ -13,14 +15,30 @@
 	<body>
 		<h1>Testing</h1>
 
-		<div id="plot-div"></div>
+		<div id="chw_total"></div>
+		<div id="hw_total"></div>
+		<div id="hw_kl"></div>
+		<div id="chw_kl"></div>
+		<div id="hw_cob"></div>
+		<div id="chw_cob"></div>
+		<div id="hw_SE1"></div>
+		<div id="chw_SE1"></div>
+		<div id="hw_SE2"></div>
+		<div id="chw_SE2"></div>
+		<div id="hw_SSB"></div>
+		<!-- <div id="chw_SSB"></div> -->
+		<div id="hw_SSM"></div>
+		<div id="chw_SSM"></div>
+		<div id="hw_SAAC"></div>
+		<div id="chw_SAAC"></div>
+		<div id="total_sunpower"></div>
 
 		<script>
 			console.log(foo.columns[1]);
 
 
 			xVals = []
-			for (var i = 0; i < foo.columns[0].length; i++) {
+			for (var i = 0; i < foo.columns[17].length; i++) {
 				xVals.push(i)
 			}
 
@@ -52,12 +70,143 @@
 				name: 'hw_kl'
 			};
 
-			var data = [ chw_total, hw_total, hw_kl ];
-			// var data = [hw_kl];
+			var chw_kl = {
+				x: foo.columns[0],
+				y: foo.columns[4],
+				mode: 'markers',
+				type: 'scattergl',
+				name: 'chw_kl'
+			};
 
-			var layout = {};
+			var hw_cob = {
+				x: foo.columns[0],
+				y: foo.columns[5],
+				mode: 'markers',
+				type: 'scattergl',
+				name: 'hw_cob'
+			};
 
-			Plotly.newPlot('plot-div', data, layout);
+			var chw_cob = {
+				x: foo.columns[0],
+				y: foo.columns[6],
+				mode: 'markers',
+				type: 'scattergl',
+				name: 'hw_cob'
+			};
+
+			var hw_SE1 = {
+				x: foo.columns[0],
+				y: foo.columns[7],
+				mode: 'markers',
+				type: 'scattergl',
+				name: 'hw_SE1'
+			};
+
+			var chw_SE1 = {
+				x: foo.columns[0],
+				y: foo.columns[8],
+				mode: 'markers',
+				type: 'scattergl',
+				name: 'chw_SE1'
+			};
+
+			var hw_SE2 = {
+				x: foo.columns[0],
+				y: foo.columns[9],
+				mode: 'markers',
+				type: 'scattergl',
+				name: 'hw_SE2'
+			};
+
+			var chw_SE2 = {
+				x: foo.columns[0],
+				y: foo.columns[10],
+				mode: 'markers',
+				type: 'scattergl',
+				name: 'chw_SE2'
+			};
+			
+			var hw_SSB = {
+				x: foo.columns[0],
+				y: foo.columns[11],
+				mode: 'markers',
+				type: 'scattergl',
+				name: 'hw_SSB'
+			};
+
+			// var chw_SSB = {
+			// 	x: foo.columns[0],
+			// 	y: foo.columns[12],
+			// 	mode: 'markers',
+			// 	type: 'scattergl',
+			// 	name: 'chw_SSB'
+			// };
+
+			var hw_SSM = {
+				x: foo.columns[0],
+				y: foo.columns[13],
+				mode: 'markers',
+				type: 'scattergl',
+				name: 'hw_SSM'
+			};
+
+			var chw_SSM = {
+				x: foo.columns[0],
+				y: foo.columns[14],
+				mode: 'markers',
+				type: 'scattergl',
+				name: 'chw_SSM'
+			};
+			
+			var hw_SAAC = {
+				x: foo.columns[0],
+				y: foo.columns[15],
+				mode: 'markers',
+				type: 'scattergl',
+				name: 'hw_SAAC'
+			};
+
+			var chw_SAAC = {
+				x: foo.columns[0],
+				y: foo.columns[16],
+				mode: 'markers',
+				type: 'scattergl',
+				name: 'chw_SAAC'
+			};
+
+			var total_sunpower = {
+				x: [0, 1, 2, 3],
+				y: foo.columns[17],
+				mode: 'markers',
+				type: 'scattergl',
+				name: 'total_sunpower'
+			};
+
+			Plotly.newPlot('chw_total', [chw_total], {title: "chw_total (gal)"});
+			Plotly.newPlot('hw_total', [hw_total], {title: "hw_total (gal)"});
+
+			Plotly.newPlot('hw_kl', [hw_kl], {title: "hw_kl (gal)"});
+			Plotly.newPlot('chw_kl', [chw_kl], {title: "chw_kl (gal)"});
+
+			Plotly.newPlot('hw_cob', [hw_cob], {title: "hw_cob (gal)"});
+			Plotly.newPlot('chw_cob', [chw_cob], {title: "chw_cob (gal)"});
+
+			Plotly.newPlot('hw_SE1', [hw_SE1], {title: "hw_SE1 (gal)"});
+			Plotly.newPlot('chw_SE1', [chw_SE1], {title: "chw_SE1 (gal)"});
+
+			Plotly.newPlot('hw_SE2', [chw_SE2], {title: "chw_SE2 (gal)"});
+			Plotly.newPlot('chw_SE2', [chw_SE2], {title: "chw_SE2 (gal)"});
+
+			Plotly.newPlot('hw_SSB', [hw_SSB], {title: "hw_SSB (gal)"});
+			// Plotly.newPlot('chw_SSB', [chw_SSB], {title: "chw_SSB (gal)"});
+
+			Plotly.newPlot('hw_SSM', [chw_SSM], {title: "chw_SSM (gal)"});
+			Plotly.newPlot('chw_SSM', [chw_SSM], {title: "chw_SSM (gal)"});
+
+			Plotly.newPlot('hw_SAAC', [chw_SAAC], {title: "hw_SAAC (gal)"});
+			Plotly.newPlot('chw_SAAC', [chw_SAAC], {title: "chw_SAAC (gal)"});
+
+			Plotly.newPlot('total_sunpower', [total_sunpower], {title: "total_sunpower (kWh)"});
 		</script>
 	</body>
 </html>
